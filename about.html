@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Solutions - Lighting the Future</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; font-family: 'Montserrat', sans-serif; background-color: #0a0a1a; color: #e0e0ff;">
+    <!-- Animated Background -->
+    <div id="lightning-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;">
+        <div id="lightning" style="position: absolute; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,50,150,0.1), rgba(0,0,0,0));"></div>
+    </div>
+
+    <!-- Header with Glow Effect -->
+    <header style="padding: 2rem 0; text-align: center; background: rgba(0,20,50,0.7); backdrop-filter: blur(5px); border-bottom: 1px solid #0077ff;">
+        <h1 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 3rem; color: #00a8ff; text-shadow: 0 0 10px #0077ff, 0 0 20px #0077ff;">
+            <i class="fas fa-bolt" style="margin-right: 15px;"></i>POWER SOLUTIONS
+        </h1>
+        <p style="font-size: 1.25rem; margin-top: 0.5rem; color: #a0d0ff;">Lighting the path to a sustainable future</p>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="yoyo.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" style="padding: 4rem 2rem; text-align: center; max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #00ccff; text-shadow: 0 0 5px #0077ff;">
+            <span id="dynamic-title">About Us</span>
+        </h2>
+        <p style="font-size: 1.25rem; margin-bottom: 3rem; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+            We provide <span class="highlight">innovative</span> and <span class="highlight">efficient</span> solutions for the power sector, working towards a <span class="highlight">sustainable energy future</span> with cutting-edge technology and renewable resources.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <!-- Sustainability Card -->
+            <div class="feature-card" style="flex: 1; min-width: 280px; max-width: 350px; padding: 2rem 1.5rem; border-radius: 12px; background: rgba(0,40,80,0.5); backdrop-filter: blur(5px); border: 1px solid #0077ff; position: relative; overflow: hidden;">
+                <div class="card-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 30% 30%, rgba(0,150,255,0.1), transparent); z-index: -1;"></div>
+                <i class="fas fa-bolt fa-4x" style="color: #00ccff; margin-bottom: 1.5rem; text-shadow: 0 0 10px #0077ff;"></i>
+                <div>
+                    <h5 style="font-size: 1.5rem; margin-bottom: 1rem; color: #00ccff;">Sustainability</h5>
+                    <p style="font-size: 1.1rem; color: #c0e0ff;">Commitment to eco-friendly and renewable energy solutions that reduce carbon footprint while maximizing efficiency.</p>
+                </div>
+                <div class="sparks" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none;"></div>
+            </div>
+
+            <!-- Innovation Card -->
+            <div class="feature-card" style="flex: 1; min-width: 280px; max-width: 350px; padding: 2rem 1.5rem; border-radius: 12px; background: rgba(0,40,80,0.5); backdrop-filter: blur(5px); border: 1px solid #0077ff; position: relative; overflow: hidden;">
+                <div class="card-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 70% 30%, rgba(0,150,255,0.1), transparent); z-index: -1;"></div>
+                <i class="fas fa-cogs fa-4x" style="color: #00ccff; margin-bottom: 1.5rem; text-shadow: 0 0 10px #0077ff;"></i>
+                <div>
+                    <h5 style="font-size: 1.5rem; margin-bottom: 1rem; color: #00ccff;">Innovation</h5>
+                    <p style="font-size: 1.1rem; color: #c0e0ff;">Leading the way with cutting-edge power distribution technology and smart grid solutions for the modern world.</p>
+                </div>
+                <div class="sparks" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none;"></div>
+            </div>
+
+            <!-- Customer Focus Card -->
+            <div class="feature-card" style="flex: 1; min-width: 280px; max-width: 350px; padding: 2rem 1.5rem; border-radius: 12px; background: rgba(0,40,80,0.5); backdrop-filter: blur(5px); border: 1px solid #0077ff; position: relative; overflow: hidden;">
+                <div class="card-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 70%, rgba(0,150,255,0.1), transparent); z-index: -1;"></div>
+                <i class="fas fa-users fa-4x" style="color: #00ccff; margin-bottom: 1.5rem; text-shadow: 0 0 10px #0077ff;"></i>
+                <div>
+                    <h5 style="font-size: 1.5rem; margin-bottom: 1rem; color: #00ccff;">Customer Focus</h5>
+                    <p style="font-size: 1.1rem; color: #c0e0ff;">Tailored solutions to meet the unique needs of each client with 24/7 support and personalized service.</p>
+                </div>
+                <div class="sparks" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section style="padding: 3rem 2rem; background: rgba(0,30,70,0.6); margin: 3rem 0; border-top: 1px solid #0077ff; border-bottom: 1px solid #0077ff;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+            <div class="stat-item" style="text-align: center; min-width: 150px;">
+                <div class="stat-value" style="font-size: 3rem; font-weight: bold; color: #00ccff; margin-bottom: 0.5rem;">250+</div>
+                <div class="stat-label" style="font-size: 1.1rem; color: #a0d0ff;">Projects Completed</div>
+            </div>
+            <div class="stat-item" style="text-align: center; min-width: 150px;">
+                <div class="stat-value" style="font-size: 3rem; font-weight: bold; color: #00ccff; margin-bottom: 0.5rem;">99.9%</div>
+                <div class="stat-label" style="font-size: 1.1rem; color: #a0d0ff;">Uptime Guarantee</div>
+            </div>
+            <div class="stat-item" style="text-align: center; min-width: 150px;">
+                <div class="stat-value" style="font-size: 3rem; font-weight: bold; color: #00ccff; margin-bottom: 0.5rem;">50MW</div>
+                <div class="stat-label" style="font-size: 1.1rem; color: #a0d0ff;">Renewable Capacity</div>
+            </div>
+            <div class="stat-item" style="text-align: center; min-width: 150px;">
+                <div class="stat-value" style="font-size: 3rem; font-weight: bold; color: #00ccff; margin-bottom: 0.5rem;">24/7</div>
+                <div class="stat-label" style="font-size: 1.1rem; color: #a0d0ff;">Support Available</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Enhanced Pagination -->
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+        <div class="pagination-container">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="yoyo.html" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="home.html">1</a></li>
+                    <li class="page-item"><a class="page-link" href="WhatsApp Image 2025-02-22 at 02.23.53_d07c4244.jpg">2</a></li>
+                    <li class="page-item"><a class="page-link" href="yoyo.html">3</a></li>
+                    <li class="page-item active"><a class="page-link" href="about.html">4</a></li>
+                    <li class="page-item"><a class="page-link" href="distrubution.html">5</a></li>
+                    <li class="page-item"><a class="page-link" href="1234567.html">6</a></li>
+                    <li class="page-item"><a class="page-link" href="contact.html">7</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="distrubution.html" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <style>
+        /* Highlight text */
+        .highlight {
+            color: #00ccff;
+            font-weight: bold;
+            text-shadow: 0 0 5px #0077ff;
+        }
+
+        /* Breadcrumbs Styles */
+        .breadcrumb {
+            background: transparent;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb-item {
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb-item a {
+            color: #00ccff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-item a:hover {
+            color: #0077ff;
+        }
+        
+        .breadcrumb-item.active {
+            color: #a0d0ff;
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #a0d0ff;
+        }
+
+        /* Enhanced Pagination Styles */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+            gap: 0.5rem;
+        }
+        
+        .pagination {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .pagination .page-item {
+            list-style: none;
+        }
+        
+        .pagination .page-link {
+            color: #00ccff;
+            background: rgba(0, 20, 50, 0.7);
+            border: 2px solid #00ccff;
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #00ccff;
+            color: #0a0a1a;
+            border-color: #00ccff;
+            box-shadow: 0 4px 8px rgba(0, 204, 255, 0.3);
+        }
+        
+        .pagination .page-link:hover:not(.active) {
+            background-color: #0077ff;
+            color: white;
+            border-color: #0077ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 119, 255, 0.3);
+        }
+        
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+            background-color: rgba(0, 20, 50, 0.3);
+            border-color: #0077ff;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        .pagination .page-link i {
+            font-size: 0.9rem;
+            margin: 0 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .pagination .page-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Hover effect for feature cards */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 120, 255, 0.3);
+            border-color: #00ccff;
+        }
+
+        /* Animation for the person icon (forward movement) */
+        @keyframes moveForward {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Animation for the settings icon (circular motion) */
+        @keyframes rotateCircle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animation for the sustainability icon (vibrate) */
+        @keyframes vibrate {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Lightning animation */
+        @keyframes lightning {
+            0% { opacity: 0; }
+            10% { opacity: 0; }
+            11% { opacity: 0.3; }
+            14% { opacity: 0; }
+            20% { opacity: 0; }
+            21% { opacity: 0.5; }
+            24% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* Spark animation */
+        @keyframes spark {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+
+        /* Stat counter animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CTA button hover effect */
+        #cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px #0077ff;
+            background: linear-gradient(to right, #00ccff, #0077ff);
+        }
+
+        /* Social icons hover */
+        footer a {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        footer a:hover {
+            transform: translateY(-5px) scale(1.2);
+            color: #00ccff !important;
+            text-shadow: 0 0 10px #0077ff;
+        }
+    </style>
+
+    <!-- Inline JavaScript for Interactivity -->
+    <script>
+        // Add hover effects to icons
+        document.querySelectorAll('.fa-users').forEach(icon => {
+            icon.addEventListener('mouseover', () => {
+                icon.style.animation = 'moveForward 0.5s ease-in-out';
+            });
+            icon.addEventListener('mouseout', () => {
+                icon.style.animation = '';
+            });
+        });
+
+        document.querySelectorAll('.fa-cogs').forEach(icon => {
+            icon.addEventListener('mouseover', () => {
+                icon.style.animation = 'rotateCircle 1s linear infinite';
+            });
+            icon.addEventListener('mouseout', () => {
+                icon.style.animation = '';
+            });
+        });
+
+        document.querySelectorAll('.fa-bolt').forEach(icon => {
+            icon.addEventListener('mouseover', () => {
+                icon.style.animation = 'vibrate 0.3s ease-in-out';
+            });
+            icon.addEventListener('mouseout', () => {
+                icon.style.animation = '';
+            });
+        });
+
+        // Random lightning effect in background
+        function triggerLightning() {
+            const lightning = document.getElementById('lightning');
+            lightning.style.animation = 'none';
+            void lightning.offsetWidth; // Trigger reflow
+            lightning.style.animation = 'lightning 4s linear';
+            
+            // Random delay for next lightning (5-15 seconds)
+            setTimeout(triggerLightning, 5000 + Math.random() * 10000);
+        }
+        
+        // Start lightning effect after page loads
+        window.addEventListener('load', () => {
+            triggerLightning();
+            
+            // Animate stats when they come into view
+            const statItems = document.querySelectorAll('.stat-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'countUp 0.8s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+
+        // Create sparks on card hover
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const sparks = this.querySelector('.sparks');
+                sparks.innerHTML = '';
+                
+                // Create 5-10 sparks randomly positioned
+                const sparkCount = 5 + Math.floor(Math.random() * 6);
+                for (let i = 0; i < sparkCount; i++) {
+                    const spark = document.createElement('div');
+                    spark.style.position = 'absolute';
+                    spark.style.width = '4px';
+                    spark.style.height = '4px';
+                    spark.style.backgroundColor = '#00ccff';
+                    spark.style.borderRadius = '50%';
+                    spark.style.boxShadow = '0 0 5px 2px #00ccff';
+                    spark.style.left = Math.random() * 90 + 5 + '%';
+                    spark.style.top = Math.random() * 90 + 5 + '%';
+                    spark.style.animation = 'spark 0.6s ease-out forwards';
+                    spark.style.animationDelay = (Math.random() * 0.5) + 's';
+                    sparks.appendChild(spark);
+                    
+                    // Remove spark after animation
+                    setTimeout(() => {
+                        spark.remove();
+                    }, 1000);
+                }
+            });
+        });
+
+        // Dynamic title effect
+        const titleText = "About Our Power Solutions";
+        let currentChar = 0;
+        const dynamicTitle = document.getElementById('dynamic-title');
+        
+        function typeTitle() {
+            if (currentChar < titleText.length) {
+                dynamicTitle.textContent += titleText.charAt(currentChar);
+                currentChar++;
+                setTimeout(typeTitle, 50 + Math.random() * 50);
+            }
+        }
+        
+        // Start typing after a delay
+        setTimeout(() => {
+            dynamicTitle.textContent = '';
+            currentChar = 0;
+            typeTitle();
+        }, 1000);
+
+        // CTA button effect
+        const ctaButton = document.getElementById('cta-button');
+        ctaButton.addEventListener('mouseenter', () => {
+            const arrow = ctaButton.querySelector('i');
+            arrow.style.transform = 'translateX(5px)';
+        });
+        
+        ctaButton.addEventListener('mouseleave', () => {
+            const arrow = ctaButton.querySelector('i');
+            arrow.style.transform = 'translateX(0)';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Energy Solutions</title>
+    <style>
+        /* Internal CSS */
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #303f9f;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --accent-color: #00bcd4;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+            padding-bottom: 3rem; /* Extra space for spinner */
+        }
+        
+        .card-title {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* Spinner styles */
+        .card-spinner {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+        
+        .spinner-1 {
+            border: 3px solid rgba(63, 81, 181, 0.2);
+            border-top: 3px solid #3f51b5;
+        }
+        
+        .spinner-2 {
+            border: 3px solid rgba(233, 30, 99, 0.2);
+            border-top: 3px solid #e91e63;
+        }
+        
+        .spinner-3 {
+            border: 3px solid rgba(76, 175, 80, 0.2);
+            border-top: 3px solid #4caf50;
+        }
+        
+        .spinner-4 {
+            border: 3px solid rgba(255, 152, 0, 0.2);
+            border-top: 3px solid #ff9800;
+        }
+        
+        .spinner-5 {
+            border: 3px solid rgba(156, 39, 176, 0.2);
+            border-top: 3px solid #9c27b0;
+        }
+        
+        .spinner-6 {
+            border: 3px solid rgba(0, 188, 212, 0.2);
+            border-top: 3px solid #00bcd4;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .calculator {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .result {
+            padding: 1rem;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .info-graphic {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .wind-animation {
+            width: 100%;
+            height: 200px;
+            background-color: #e3f2fd;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .turbine {
+            position: absolute;
+            width: 80px;
+            height: 150px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .tower {
+            width: 15px;
+            height: 120px;
+            background: #78909c;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .blades {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform-origin: center;
+            animation: spin 5s linear infinite;
+        }
+        
+        .blade {
+            width: 60px;
+            height: 10px;
+            background: #455a64;
+            position: absolute;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .navbar {
+                padding: 1rem;
+            }
+        }
+        
+        /* Enhanced Pagination Styles */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+            gap: 0.5rem;
+        }
+        
+        .pagination {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .pagination .page-item {
+            list-style: none;
+        }
+        
+        .pagination .page-link {
+            color: var(--primary-color);
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(63, 81, 181, 0.3);
+        }
+        
+        .pagination .page-link:hover:not(.active) {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+            background-color: #f8f9fa;
+            border-color: #dee2e6;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        .pagination .page-link i {
+            font-size: 0.9rem;
+            margin: 0 4px;
+        }
+
+        /* Breadcrumbs Styles */
+        .breadcrumb {
+            background: transparent;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb-item {
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-item a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--dark-color);
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: var(--dark-color);
+        }
+        
+        @media (max-width: 768px) {
+            .pagination .page-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">WindPower Solutions</div>
+    </nav>
+    
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="yoyo.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Wind Energy Solutions</li>
+            </ol>
+        </nav>
+
+        <div class="header">
+            <h1>Harnessing Wind Energy</h1>
+            <p>Discover the power of wind as a clean, renewable energy source for a sustainable future</p>
+        </div>
+        
+        <div class="info-graphic">
+            <h2>How Wind Turbines Work</h2>
+            <div class="wind-animation">
+                <div class="turbine">
+                    <div class="tower"></div>
+                    <div class="blades">
+                        <div class="blade" style="transform: translateX(-50%) rotate(0deg);"></div>
+                        <div class="blade" style="transform: translateX(-50%) rotate(120deg);"></div>
+                        <div class="blade" style="transform: translateX(-50%) rotate(240deg);"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Wind turns the turbine blades, which spin a generator to produce electricity</p>
+        </div>
+        
+        <div class="card-container" id="turbineCards">
+            <!-- Cards will be generated by JavaScript -->
+        </div>
+        
+        <div class="calculator">
+            <h2>Wind Energy Calculator</h2>
+            <div class="form-group">
+                <label for="turbineSize">Turbine Size (kW):</label>
+                <select id="turbineSize">
+                    <option value="1.5">Small (1.5 kW)</option>
+                    <option value="10">Residential (10 kW)</option>
+                    <option value="100">Commercial (100 kW)</option>
+                    <option value="2500">Industrial (2.5 MW)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="windSpeed">Average Wind Speed (m/s):</label>
+                <input type="number" id="windSpeed" value="6" min="3" max="15" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="hours">Daily Operational Hours:</label>
+                <input type="number" id="hours" value="12" min="1" max="24">
+            </div>
+            <button class="btn" onclick="calculateEnergy()">Calculate Energy Production</button>
+            <div class="result" id="result"></div>
+        </div>
+        
+        <h2>Wind Turbine Types Comparison</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Power Output</th>
+                    <th>Rotor Diameter</th>
+                    <th>Ideal Location</th>
+                    <th>Cost Estimate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Small Residential</td>
+                    <td>1-10 kW</td>
+                    <td>3-7 meters</td>
+                    <td>Rural homes, farms</td>
+                    <td>$3,000-$15,000</td>
+                </tr>
+                <tr>
+                    <td>Commercial</td>
+                    <td>50-250 kW</td>
+                    <td>15-30 meters</td>
+                    <td>Businesses, schools</td>
+                    <td>$50,000-$300,000</td>
+                </tr>
+                <tr>
+                    <td>Industrial Onshore</td>
+                    <td>1-3 MW</td>
+                    <td>70-100 meters</td>
+                    <td>Wind farms</td>
+                    <td>$1-$3 million</td>
+                </tr>
+                <tr>
+                    <td>Offshore</td>
+                    <td>3-15 MW</td>
+                    <td>100-200 meters</td>
+                    <td>Coastal areas</td>
+                    <td>$4-$15 million</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Internal JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wind turbine options data
+            const turbineOptions = [
+                {
+                    id: 1,
+                    title: "Residential Wind Turbines",
+                    image: "777.jpg",
+                    description: "Small-scale turbines perfect for homes and farms to reduce energy bills.",
+                    output: "1-10 kW",
+                    height: "10-30m",
+                    spinnerClass: "spinner-1"
+                },
+                {
+                    id: 2,
+                    title: "Commercial Wind Turbines",
+                    image: "https://images.unsplash.com/photo-1534237886190-ced735ca4b73",
+                    description: "Medium-sized turbines for businesses, schools, and small communities.",
+                    output: "50-250 kW",
+                    height: "30-50m",
+                    spinnerClass: "spinner-2"
+                },
+                {
+                    id: 3,
+                    title: "Onshore Wind Farms",
+                    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d",
+                    description: "Large turbines grouped in wind farms to power thousands of homes.",
+                    output: "1-3 MW",
+                    height: "80-120m",
+                    spinnerClass: "spinner-3"
+                },
+                {
+                    id: 4,
+                    title: "Offshore Wind Turbines",
+                    image: "666.jpeg",
+                    description: "Massive turbines installed in oceans to capture stronger, steadier winds.",
+                    output: "3-15 MW",
+                    height: "150-250m",
+                    spinnerClass: "spinner-4"
+                },
+                {
+                    id: 5,
+                    title: "Vertical Axis Turbines",
+                    image: "tt.jpg",
+                    description: "Compact, omnidirectional turbines ideal for urban environments.",
+                    output: "0.5-10 kW",
+                    height: "5-15m",
+                    spinnerClass: "spinner-5"
+                },
+                {
+                    id: 6,
+                    title: "Hybrid Wind-Solar Systems",
+                    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276",
+                    description: "Combined renewable energy systems for maximum efficiency.",
+                    output: "Custom configurations",
+                    height: "Varies",
+                    spinnerClass: "spinner-6"
+                }
+            ];
+            
+            // Generate turbine cards
+            const cardContainer = document.getElementById('turbineCards');
+            turbineOptions.forEach(option => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${option.image}" alt="${option.title}" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">${option.title}</h3>
+                        <p>${option.description}</p>
+                        <p><strong>Power Output:</strong> ${option.output}</p>
+                        <p><strong>Tower Height:</strong> ${option.height}</p>
+                        <div class="card-spinner ${option.spinnerClass}"></div>
+                    </div>
+                `;
+                cardContainer.appendChild(card);
+            });
+        });
+        
+        // Calculate energy production
+        function calculateEnergy() {
+            const turbineSize = parseFloat(document.getElementById('turbineSize').value);
+            const windSpeed = parseFloat(document.getElementById('windSpeed').value);
+            const hours = parseFloat(document.getElementById('hours').value);
+            
+            // Simplified energy calculation (real calculations would be more complex)
+            const efficiencyFactor = 0.3; // Typical efficiency
+            const airDensity = 1.225; // kg/m³
+            const rotorArea = Math.PI * Math.pow(10, 2); // Approximate rotor area
+            
+            // Theoretical power in watts (0.5 * ρ * A * v³ * efficiency)
+            const powerWatts = 0.5 * airDensity * rotorArea * Math.pow(windSpeed, 3) * efficiencyFactor;
+            
+            // Scale to turbine size (simplified)
+            const powerOutput = Math.min(powerWatts / 1000, turbineSize * 0.8); // 80% of rated capacity
+            
+            // Daily energy in kWh
+            const dailyEnergy = powerOutput * hours;
+            
+            // Annual energy
+            const annualEnergy = dailyEnergy * 365;
+            
+            // Homes powered equivalent (average home uses 10,000 kWh/year)
+            const homesPowered = annualEnergy / 10000;
+            
+            // Display results
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h3>Energy Production Estimate</h3>
+                <p>Daily Energy: ${dailyEnergy.toFixed(0)} kWh</p>
+                <p>Annual Energy: ${annualEnergy.toFixed(0)} kWh</p>
+                <p>Equivalent to powering about ${homesPowered.toFixed(1)} average homes</p>
+                <p>Note: Actual production depends on many factors including exact turbine specifications, wind patterns, and site conditions.</p>
+            `;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+
+    <!-- Enhanced Pagination -->
+    <div class="container">
+        <div class="pagination-container">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="distrubution.html" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="yoyo.html">1</a></li>
+                    <li class="page-item"><a class="page-link" href="WhatsApp Image 2025-02-22 at 02.23.53_d07c4244.jpg">2</a></li>
+                    <li class="page-item"><a class="page-link" href="yoyo.html">3</a></li>
+                    <li class="page-item"><a class="page-link" href="distrubution.html">4</a></li>
+                    <li class="page-item active"><a class="page-link" href="1234567.html">5</a></li>
+                    <li class="page-item"><a class="page-link" href="contact.html">6</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="contact.html" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

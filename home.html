@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Sector Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --highlight-color: #f39c12;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        #home {
+            background: linear-gradient(135deg, var(--dark-color), #34495e);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--light-color);
+        }
+        
+        .lead {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            color: var(--light-color);
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .card-energy {
+            border-top-color: var(--secondary-color);
+        }
+        
+        .card-distribution {
+            border-top-color: var(--highlight-color);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(0.2);
+            transition: filter 0.3s ease;
+        }
+        
+        .card:hover .card-img-top {
+            filter: grayscale(0);
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .card-text {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-energy {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-energy:hover {
+            background-color: #27ae60;
+            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+        }
+        
+        .btn-distribution {
+            background-color: var(--highlight-color);
+        }
+        
+        .btn-distribution:hover {
+            background-color: #e67e22;
+            box-shadow: 0 4px 8px rgba(243, 156, 18, 0.3);
+        }
+        
+        .animate__animated {
+            animation-duration: 1s;
+        }
+        
+        pre {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e9f7fe;
+        }
+        
+        .content-section {
+            padding: 60px 0;
+            background-color: #ffffff;
+        }
+        
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+            color: #555;
+        }
+        
+        .feature-list li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+        
+        .blockquote {
+            border-left: 4px solid var(--highlight-color);
+            padding-left: 20px;
+            font-style: italic;
+            background-color: #fef9e7;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .text-justify {
+            text-align: justify;
+        }
+        
+        .performance-metrics {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border-left: 5px solid;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .metric-card.capacity {
+            border-color: var(--primary-color);
+            background: linear-gradient(to right, #f8f9fa, white);
+        }
+        
+        .metric-card.lifespan {
+            border-color: var(--secondary-color);
+            background: linear-gradient(to right, #f8f9fa, white);
+        }
+        
+        .metric-card.payback {
+            border-color: var(--accent-color);
+            background: linear-gradient(to right, #f8f9fa, white);
+        }
+        
+        .metric-card.efficiency {
+            border-color: var(--highlight-color);
+            background: linear-gradient(to right, #f8f9fa, white);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            margin: 10px 0;
+        }
+        
+        .metric-card.capacity .metric-value {
+            color: var(--primary-color);
+        }
+        
+        .metric-card.lifespan .metric-value {
+            color: var(--secondary-color);
+        }
+        
+        .metric-card.payback .metric-value {
+            color: var(--accent-color);
+        }
+        
+        .metric-card.efficiency .metric-value {
+            color: var(--highlight-color);
+        }
+        
+        .metric-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-chart {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .chart-bar {
+            height: 30px;
+            border-radius: 15px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+            background: #ecf0f1;
+        }
+        
+        .chart-fill {
+            height: 100%;
+            border-radius: 15px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: width 1.5s ease;
+            width: 0;
+        }
+        
+        .chart-label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+        
+        .bg-success {
+            background-color: var(--secondary-color) !important;
+        }
+        
+        .bg-danger {
+            background-color: var(--accent-color) !important;
+        }
+        
+        .bg-warning {
+            background-color: var(--highlight-color) !important;
+        }
+        
+        .bg-info {
+            background-color: #17a2b8 !important;
+        }
+        
+        .list-group-item {
+            transition: all 0.3s ease;
+        }
+        
+        .list-group-item:hover {
+            transform: translateX(5px);
+            background-color: #f8f9fa;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            font-weight: bold;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .nav-tabs .nav-link {
+            color: #555;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* New styles for enhanced features */
+        .testimonial-card {
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .client-logo {
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--dark-color);
+        }
+        
+        .pricing-card .period {
+            font-size: 1rem;
+            color: #777;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .faq-item .card-header {
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item .card-header:hover {
+            background-color: #e9ecef;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .form-control {
+            border-radius: 25px;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+        
+        .btn-submit {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .lead {
+                font-size: 1.2rem;
+            }
+            
+            .metric-value {
+                font-size: 2rem;
+            }
+        }
+
+        /* Enhanced Pagination Styles */
+        .pagination {
+            margin: 2rem 0;
+        }
+        
+        .pagination .page-link {
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            margin: 0 3px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pagination .page-link:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+            pointer-events: none;
+            background-color: #f8f9fa;
+        }
+        
+        .pagination .page-link i {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-bolt me-2" style="color: var(--highlight-color);"></i>Power Sector Solutions
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="container-fluid py-5">
+    <div class="container">
+        <h1 class="display-4 text-center mb-4 animate__animated animate__fadeInDown">Welcome to Power Sector Solutions</h1>
+        <p class="lead text-center mb-5 animate__animated animate__fadeInUp">Optimizing energy consumption and distributing power efficiently.</p>
+
+        <!-- Grid layout for cards -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 justify-content-center">
+            <div class="col animate__animated animate__fadeInLeft">
+                <div class="card card-energy">
+                    <img src="wind-farm.jpg" class="card-img-top" alt="Energy Saving">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-leaf me-2" style="color: var(--secondary-color);"></i>Energy Saving</h5>
+                        <p class="card-text">Learn how we can help you save energy and reduce costs.</p>
+                        <a href="34543.jpg" class="btn btn-energy btn-primary">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col animate__animated animate__fadeInUp">
+                <div class="card card-distribution">
+                    <img src="0098.jpg" class="card-img-top" alt="Power Distribution">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-bolt me-2" style="color: var(--highlight-color);"></i>Power Distribution</h5>
+                        <p class="card-text">Efficient power distribution for homes and businesses.</p>
+                        <a href="https://youtu.be/gE6A5V9qkdQ" class="btn btn-distribution btn-primary">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col animate__animated animate__fadeInRight">
+                <div class="card">
+                    <img src="ljh.jpeg" class="card-img-top" alt="Solar Solutions">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-solar-panel me-2" style="color: var(--primary-color);"></i>Solar Solutions</h5>
+                        <p class="card-text">Harness the power of the sun with our innovative solar technologies.</p>
+                        <a href="#solar" class="btn btn-primary">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section -->
+<section id="solutions" class="content-section container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h2 class="text-center mb-5" style="color: var(--primary-color);"><i class="fas fa-wind me-3"></i>Wind Energy Solutions</h2>
+            
+            <div class="mb-5">
+                <div class="icon-box">
+                    <i class="fas fa-fan" style="color: var(--primary-color);"></i>
+                </div>
+                <h3 class="text-center mb-4" style="color: var(--dark-color);">Harnessing the Power of Wind</h3>
+                <p class="text-justify">
+                    Wind energy is one of the fastest-growing renewable energy technologies. Our solutions leverage cutting-edge turbine technology to convert wind's kinetic energy into clean electricity. Modern wind turbines are highly efficient, with capacities ranging from 2-3 MW for onshore installations to 8-12 MW for offshore projects.
+                </p>
+            </div>
+            
+            <div class="performance-metrics animate__animated animate__fadeIn">
+                <h3 class="text-center mb-4" style="color: var(--dark-color);"><i class="fas fa-tachometer-alt me-2"></i>Key Performance Indicators</h3>
+                <p class="text-center mb-5">Our wind energy solutions deliver exceptional performance across all critical metrics</p>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="metric-card capacity">
+                            <div class="metric-icon">
+                                <i class="fas fa-bolt" style="color: var(--primary-color);"></i>
+                            </div>
+                            <h4>Capacity Factor</h4>
+                            <div class="metric-value">42-58%</div>
+                            <p>Percentage of maximum potential energy output actually achieved</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="metric-card lifespan">
+                            <div class="metric-icon">
+                                <i class="fas fa-calendar-alt" style="color: var(--secondary-color);"></i>
+                            </div>
+                            <h4>Project Lifespan</h4>
+                            <div class="metric-value">25+ years</div>
+                            <p>Operational lifetime with proper maintenance</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="metric-card payback">
+                            <div class="metric-icon">
+                                <i class="fas fa-clock" style="color: var(--accent-color);"></i>
+                            </div>
+                            <h4>Energy Payback</h4>
+                            <div class="metric-value">5-7 months</div>
+                            <p>Time to recover energy used in manufacturing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="metric-card efficiency">
+                            <div class="metric-icon">
+                                <i class="fas fa-percentage" style="color: var(--highlight-color);"></i>
+                            </div>
+                            <h4>Conversion Efficiency</h4>
+                            <div class="metric-value">45-50%</div>
+                            <p>Of wind energy converted to electrical energy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comparison-chart">
+                    <h4 class="text-center mb-4"><i class="fas fa-chart-bar me-2" style="color: var(--primary-color);"></i>Energy Source Comparison</h4>
+                    <p class="text-center mb-4">CO2 Emissions (grams per kWh)</p>
+                    
+                    <div class="chart-container">
+                        <div class="chart-bar">
+                            <div class="chart-fill bg-primary" style="width: 90%;" data-width="90"></div>
+                            <span class="chart-label">Coal (820g)</span>
+                        </div>
+                        
+                        <div class="chart-bar">
+                            <div class="chart-fill bg-info" style="width: 60%;" data-width="60"></div>
+                            <span class="chart-label">Natural Gas (490g)</span>
+                        </div>
+                        
+                        <div class="chart-bar">
+                            <div class="chart-fill bg-warning" style="width: 12%;" data-width="12"></div>
+                            <span class="chart-label">Solar PV (48g)</span>
+                        </div>
+                        
+                        <div class="chart-bar">
+                            <div class="chart-fill bg-success" style="width: 8%;" data-width="8"></div>
+                            <span class="chart-label">Wind (11g)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color bg-primary"></div>
+                            <span>Coal</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color bg-info"></div>
+                            <span>Natural Gas</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color bg-warning"></div>
+                            <span>Solar</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color bg-success"></div>
+                            <span>Wind</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <h4 style="color: var(--secondary-color);"><i class="fas fa-check-circle me-2"></i>Key Advantages</h4>
+                    <ul class="feature-list">
+                        <li>Clean, renewable source of energy</li>
+                        <li>Low operational costs after installation</li>
+                        <li>Creates local jobs and economic growth</li>
+                        <li>Reduces carbon footprint significantly</li>
+                        <li>Scalable from small to utility-scale projects</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4 style="color: var(--primary-color);"><i class="fas fa-chart-line me-2"></i>Performance Metrics</h4>
+                    <table class="table">
+                        <tr>
+                            <th>Metric</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Capacity Factor</td>
+                            <td>35-55%</td>
+                        </tr>
+                        <tr>
+                            <td>Lifespan</td>
+                            <td>20-25 years</td>
+                        </tr>
+                        <tr>
+                            <td>Energy Payback</td>
+                            <td>6-8 months</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="mb-5">
+                <h4 class="mb-3" style="color: var(--dark-color);"><i class="fas fa-code me-2"></i>Technical Implementation</h4>
+                <p>Our wind energy systems use advanced control algorithms to optimize performance:</p>
+                <pre><code>// Sample wind turbine control algorithm
+function adjustBladePitch(windSpeed) {
+    if (windSpeed < 3) return 0;  // Below cut-in speed
+    if (windSpeed > 25) return 90; // Feather blades for safety
+    return Math.min(15, windSpeed * 0.6); // Optimal pitch angle
+}</code></pre>
+            </div>
+            
+            <div class="mb-5">
+                <h4 class="mb-3" style="color: var(--dark-color);"><i class="fas fa-lightbulb me-2"></i>Future Innovations</h4>
+                <div class="blockquote">
+                    <p>"The future of wind energy lies in floating offshore turbines and hybrid systems that combine wind with other renewable sources for more consistent power generation."</p>
+                    <footer class="blockquote-footer">Dr. Sarah Chen, Chief Technology Officer</footer>
+                </div>
+                <p class="mt-3">We're currently developing:</p>
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="fas fa-arrow-right me-2" style="color: var(--primary-color);"></i>Vertical axis wind turbines for urban environments</li>
+                    <li class="list-group-item"><i class="fas fa-arrow-right me-2" style="color: var(--primary-color);"></i>AI-powered predictive maintenance systems</li>
+                    <li class="list-group-item"><i class="fas fa-arrow-right me-2" style="color: var(--primary-color);"></i>Integrated wind-solar hybrid farms</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="content-section bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="mb-4" style="color: var(--primary-color);"><i class="fas fa-building me-2"></i>About Our Company</h2>
+                <p class="lead">Pioneering renewable energy solutions since 2010</p>
+                <p>Power Sector Solutions was founded with a vision to transform the energy landscape through innovative, sustainable technologies. Our team of engineers, scientists, and energy experts are dedicated to developing solutions that reduce carbon emissions while maintaining energy reliability.</p>
+                
+                <div class="timeline mt-5">
+                    <div class="timeline-item">
+                        <h4>2010</h4>
+                        <p>Company founded with focus on residential solar solutions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2014</h4>
+                        <p>Expanded into commercial wind energy projects</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2018</h4>
+                        <p>Launched our first hybrid energy storage system</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="mb-4" style="color: var(--primary-color);"><i class="fas fa-trophy me-2"></i>Our Achievements</h2>
+                <p>Here are some of the milestones we've achieved:</p>
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="fas fa-check-circle me-2" style="color: var(--secondary-color);"></i>100+ successful projects</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle me-2" style="color: var(--secondary-color);"></i>Reduced carbon emissions by 50%</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle me-2" style="color: var(--secondary-color);"></i>Awarded Best Energy Project in 2023</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Pagination -->
+<div class="container my-4">
+    <nav aria-label="Page navigation">
+        <ul class="pagination pagination-lg justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link rounded-start" href="#" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="home.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="WhatsApp Image 2025-02-22 at 02.23.53_d07c4244.jpg">2</a></li>
+            <li class="page-item"><a class="page-link" href="yoyo.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="distrubution.html">4</a></li>
+            <li class="page-item"><a class="page-link" href="1234567.html">5</a></li>
+            <li class="page-item"><a class="page-link" href="contact.html">6</a></li>
+            <li class="page-item">
+                <a class="page-link rounded-end" href="WhatsApp Image 2025-02-22 at 02.23.53_d07c4244.jpg" aria-label="Next">
+                    Next <i class="fas fa-chevron-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+</body>
+</html>
+   

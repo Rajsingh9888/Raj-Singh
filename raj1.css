@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #2d3e50;
+  color: white;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar input {
+  padding: 5px 10px;
+}
+
+.featured-destinations {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+
+
+
+
+
+
+
